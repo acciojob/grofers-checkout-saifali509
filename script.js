@@ -1,10 +1,14 @@
 const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
+getSumBtn.innerText = "Get Total Price";
 document.body.appendChild(getSumBtn);
 
+// Create answer element expected by Cypress
+const ans = document.createElement("div");
+ans.id = "ans";
+document.body.appendChild(ans);
+
 const getSum = () => {
-//Add your code here
-    const prices = document.querySelectorAll(".price");
+    const prices = document.querySelectorAll(".prices");
 
     let total = 0;
 
@@ -12,23 +16,7 @@ const getSum = () => {
         total += Number(price.textContent);
     });
 
-    const table = document.querySelector("table");
-
-    const existingTotalRow = document.querySelector(".total-row");
-    if (existingTotalRow) {
-        existingTotalRow.remove();
-    }
-
-    const totalRow = document.createElement("tr");
-    totalRow.classList.add("total-row");
-
-    const totalCell = document.createElement("td");
-    totalCell.colSpan = 2;
-    totalCell.textContent = `Total Price: Rs ${total}`;
-
-    totalRow.appendChild(totalCell);
-    table.appendChild(totalRow);
+    ans.textContent = total;
 };
 
 getSumBtn.addEventListener("click", getSum);
-
