@@ -3,21 +3,10 @@
 table {
     border-collapse: collapse;
     width: 400px;
-    margin: 20px auto;
 }
 
-th, td {
+td, th {
     border: 1px solid #333;
     padding: 8px;
     text-align: center;
-}
-
-caption {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.total-row {
-    font-weight: bold;
-    background-color: #f2f2f2;
 }
